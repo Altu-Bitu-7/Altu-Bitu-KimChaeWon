@@ -1,13 +1,17 @@
-N = int(input())
-h = list(map(int, input().split()))
+import sys
+input = sys.stdin.readline
 
-sum_h = sum(h)
-if sum_h % 3 != 0:
+N = int(input())
+height = list(map(int, input().split()))
+
+cnt = 0
+
+if sum(height) % 3 != 0:
     print("NO")
 else:
-    S = sum_h // 3
-    total_max_c2 = sum(hi // 2 for hi in h)
-    if total_max_c2 < S:
+    for h in height:
+        cnt += h//2
+    if cnt < sum(height) // 3:
         print("NO")
     else:
         print("YES")
